@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct AadatApp: App {
+    @State private var viewModel = HabitViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                MainTimelineView(viewModel: viewModel)
+            }
         }
     }
 }
