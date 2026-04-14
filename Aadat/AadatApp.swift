@@ -2,19 +2,31 @@
 //  AadatApp.swift
 //  Aadat
 //
-//  Created by Shaan SIngh on 12/04/26.
+//  Created by Shaan Singh on 12/04/26.
 //
 
 import SwiftUI
 
 @main
 struct AadatApp: App {
-    @State private var viewModel = HabitViewModel()
-    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                MainTimelineView(viewModel: viewModel)
+            TabView {
+                Tab("Timeline", systemImage: "timeline.selection") {
+                    TimelineView()
+                }
+
+                Tab("Analytics", systemImage: "chart.bar.xaxis") {
+                    AnalyticsStatsView()
+                }
+
+                Tab("Leaderboard", systemImage: "trophy") {
+                    LeaderboardSocialView()
+                }
+
+                Tab("Settings", systemImage: "gearshape") {
+                    SettingsView()
+                }
             }
         }
     }
